@@ -1,0 +1,117 @@
+CREATE DATABASE "storeDB"
+
+CREATE TABLE customer ( id int primary key, first_name varchar(50), last_name varchar(50));
+CREATE TABLE product( id int primary key, name varchar(50), price decimal(8,2));
+CREATE TABLE purchase( id int primary key, customer_id int, product_id int, date timestamp);
+
+INSERT INTO public.customer(id, first_name, last_name) VALUES (1, 'Alice', 'Smith');
+INSERT INTO public.customer(id, first_name, last_name) VALUES (2, 'Bob', 'Johnson');
+INSERT INTO public.customer(id, first_name, last_name) VALUES (3, 'Eve', 'Williams');
+INSERT INTO public.customer(id, first_name, last_name) VALUES (4, 'Carlos', 'Jones');
+INSERT INTO public.customer(id, first_name, last_name) VALUES (5, 'Mallory', 'Brown');
+INSERT INTO public.customer(id, first_name, last_name) VALUES (6, 'Peggy', 'Davis');
+INSERT INTO public.customer(id, first_name, last_name) VALUES (7, 'Trent', 'Miller');
+INSERT INTO public.customer(id, first_name, last_name) VALUES (8, 'Walter', 'King');
+INSERT INTO public.customer(id, first_name, last_name) VALUES (9, 'Merlin', 'Green');
+INSERT INTO public.customer(id, first_name, last_name) VALUES (10, 'Paul ', 'Baker');
+
+INSERT INTO public.product(id, name, price) VALUES (1, 'apple', 1.02);
+INSERT INTO public.product(id, name, price) VALUES (2, 'pen', 3);
+INSERT INTO public.product(id, name, price) VALUES (3, 'pineapple', 5.3);
+INSERT INTO public.product(id, name, price) VALUES (4, 'book', 25);
+INSERT INTO public.product(id, name, price) VALUES (5, 'fuel', 50);
+INSERT INTO public.product(id, name, price) VALUES (6, 'box', 0.5);
+INSERT INTO public.product(id, name, price) VALUES (7, 'milk', 2);
+INSERT INTO public.product(id, name, price) VALUES (8, 'bread', 1.5);
+INSERT INTO public.product(id, name, price) VALUES (9, 'sweet', 3.25);
+INSERT INTO public.product(id, name, price) VALUES (10, 'tea', 20.03);
+
+
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (1, 1, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (2, 1, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (3, 1, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (4, 1, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (5, 1, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (6, 1, 2, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (7, 1, 2, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (8, 1, 2, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (9, 1, 2, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (10 ,1, 2, now());
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (11, 2, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (12, 2, 2, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (13, 2, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (14, 2, 4, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (15, 2, 5, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (16, 2, 6, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (17, 2, 7, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (18, 2, 8, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (19, 2, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (20, 2, 2, now()); 
+
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (21, 3, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (22, 3, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (23, 3, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (24, 3, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (25, 3, 5, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (26, 3, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (27, 3, 4, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (28, 3, 5, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (29, 3, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (30, 3, 7, now());
+
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (31, 4, 8, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (32, 4, 8, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (33, 4, 8, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (34, 4, 8, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (35, 4, 5, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (36, 4, 5, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (37, 4, 10, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (38, 4, 6, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (39, 4, 10, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (40, 4, 8, now());
+
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (41, 5, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (42, 5, 9, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (43, 5, 2, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (44, 5, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (45, 5, 5, now());
+
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (46, 5, 5, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (47, 5, 5, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (48, 5, 10, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (49, 5, 5, now());
+
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (50, 6, 9, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (51, 6, 9, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (52, 6, 9, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (53, 6, 2, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (54, 6, 3, now());
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (55, 7, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (56, 7, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (57, 7, 3, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (58, 7, 4, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (59, 7, 8, now());
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (60, 8, 10, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (61, 8, 10, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (62, 8, 9, now());
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (63, 9, 7, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (64, 9, 7, now());
+
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (65, 10, 10, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (66, 10, 10, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (67, 10, 10, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (68, 10, 1, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (69, 10, 7, now());
+INSERT INTO public.purchase(id, customer_id, product_id, date)VALUES (70, 10, 5, now());
+
+
