@@ -15,9 +15,9 @@ public class Customer {
     @Column(name = "first_name")
     private  String firstName;
 
-    @Column(name = "second_name")
-    private  String secondName;
-
+    @Column(name = "last_name")
+    private  String lastName;
+    
 
     public Integer getId() {
         return id;
@@ -36,10 +36,10 @@ public class Customer {
     }
 
     public String getSecondName() {
-        return secondName;
+        return lastName;
     }
 
     public void setSecondName(String secondName) {
-        this.secondName = secondName;
+        this.lastName = secondName;
     }
 }

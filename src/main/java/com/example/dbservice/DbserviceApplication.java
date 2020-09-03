@@ -1,5 +1,10 @@
 package com.example.dbservice;
 
+import com.example.dbservice.dao.CustomerDao;
+import com.example.dbservice.dao.PurchaseDao;
+import com.example.dbservice.entity.Customer;
+import com.example.dbservice.entity.Purchase;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -18,19 +23,24 @@ public class DbserviceApplication {
 		SpringApplication.run(DbserviceApplication.class, args);
 	}
 
-
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 
-			for (String arg : args) {
-				System.out.println(arg);
+
+			for (Purchase purchase : purchaseDao.findAll()) {
+				System.out.println(purchase.getCustomer().getFirstName() + " " + purchase.getProduct().getName() + " " + purchase.getDate());
 			}
-			System.out.println("Let's inspect the beans provided by Spring Boot:");
 
 
 
 		};
 	}
+
+    @Autowired
+	CustomerDao customerDao;
+
+	@Autowired
+	PurchaseDao purchaseDao;
 
 }
