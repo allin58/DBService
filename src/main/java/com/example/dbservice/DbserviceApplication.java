@@ -21,6 +21,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 
 @SpringBootApplication
@@ -41,14 +42,14 @@ public class DbserviceApplication {
 			Object obj = parser.parse(new FileReader(args[1]));
 			JSONObject jsonObject = (JSONObject) obj;
 
-			serviceHub.defineService(jsonObject, args[0]);
+			JSONObject outputJSON = serviceHub.defineService(jsonObject, args[0]);
+
+			FileWriter file = new FileWriter(args[2]);
+			file.write(outputJSON.toJSONString());
+			file.flush();
+			file.close();
 
 
-			/*String str = "Hello";
-			FileOutputStream outputStream = new FileOutputStream("fileName.txt");
-			byte[] strToBytes = str.getBytes();
-			outputStream.write(strToBytes);
-			outputStream.close();*/
 
 
 

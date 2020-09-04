@@ -17,7 +17,7 @@ public class Customer {
 
     @Column(name = "last_name")
     private  String lastName;
-    
+
 
     public Integer getId() {
         return id;
@@ -35,11 +35,11 @@ public class Customer {
         this.firstName = firstName;
     }
 
-    public String getSecondName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setSecondName(String secondName) {
+    public void setLastName(String secondName) {
         this.lastName = secondName;
     }
 }

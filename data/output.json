@@ -1,0 +1,1 @@
+{"type":"search","results":[{"criteria":{"lastName":"Smith"},"results":[{"lastName":"Smith","firstName":"Alice"},{"lastName":"Smith","firstName":"Crage"}]},{"criteria":{"minTimes":1.8,"productName":"milk"},"results":"wrong number"}]}

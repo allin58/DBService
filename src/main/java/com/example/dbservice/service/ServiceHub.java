@@ -19,9 +19,8 @@ public class ServiceHub {
 
         if(serviceName.equalsIgnoreCase("search"))
              outputJSON = searchService.search(inputJSON);
-        if(serviceName.equalsIgnoreCase("stat"))
-            outputJSON = statServise.getStat(inputJSON);
-
+        else if(serviceName.equalsIgnoreCase("stat"))
+             outputJSON = statServise.getStat(inputJSON);
 
         return outputJSON;
     }

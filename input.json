@@ -1,0 +1,16 @@
+{
+  "criterias": [
+    {"lastName": "Smith"},
+    {"productName": "Минеральная вода", "minTimes": 5},
+    {"minExpenses": 112, "maxExpenses": 4000},
+    {"badCustomers": 3}
+  ]
+}
+
+
+{"criteria":{"lastName":"Smith"},"results":[{"lastName":"Smith","firstName":"Alice"},{"lastName":"Smith","firstName":"Crage"}]}
+
+{  "criteria": {"lastName": "Иванов"}, "results": [{"lastName": "Иванов", "firstName": "Антон"}, {"lastName": "Иванов", "firstName": "Николай"}]}
+
+
+SELECT customer_id, count(product_id) FROM public.purchase where product_id = 3 group by customer_id HAVING count(product_id) > 2;
