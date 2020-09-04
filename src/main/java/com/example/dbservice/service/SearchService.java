@@ -48,10 +48,15 @@ public class SearchService {
                 resultJSON.add(execute);
             }
 
-            if(criteriaJSON.containsKey("minExpenses"))
-            minExpensesCriteria.execute();
-            if(criteriaJSON.containsKey("badCustomers"))
-                babCustomersCriteria.execute();
+            if(criteriaJSON.containsKey("minExpenses")) {
+                JSONObject execute = minExpensesCriteria.execute(criteriaJSON);
+              //  resultJSON.add(execute);
+            }
+
+            if(criteriaJSON.containsKey("badCustomers")) {
+                JSONObject execute = babCustomersCriteria.execute(criteriaJSON);
+                resultJSON.add(execute);
+            }
 
 
 

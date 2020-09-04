@@ -1,6 +1,5 @@
 {
   "criterias": [
-    {"lastName": "Smith"},
-    {"productName": "milk", "minTimes": 1.8}
+    {"badCustomers": 3}
   ]
 }

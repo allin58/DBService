@@ -33,7 +33,8 @@ public class LastNameCriteria   {
         String lastName = inputJSON.get("lastName").toString();
         List<Customer> byLastName = customerDao.findByLastName(lastName);
         if (byLastName.isEmpty()) {
-            result.put("results","no such customer found");
+            result.put("type","error");
+            result.put("message","no such customer found");
             return result;
         }
 

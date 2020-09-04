@@ -1,1 +1,1 @@
-{"type":"search","results":[{"criteria":{"lastName":"Smith"},"results":[{"lastName":"Smith","firstName":"Alice"},{"lastName":"Smith","firstName":"Crage"}]},{"criteria":{"minTimes":1.8,"productName":"milk"},"results":"wrong number"}]}
+{"type":"search","results":[{"criteria":{"badCustomers":3},"results":[{"lastName":"Green","firstName":"Merlin"},{"lastName":"King","firstName":"Walter"},{"lastName":"Miller","firstName":"Trent"}]}]}

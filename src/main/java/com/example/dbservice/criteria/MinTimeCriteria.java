@@ -34,7 +34,8 @@ public class MinTimeCriteria   {
         try {
             minTimes = Integer.parseInt(inputJSON.get("minTimes").toString());
         } catch (NumberFormatException e) {
-            result.put("results","wrong number");
+            result.put("type","error");
+            result.put("message","wrong number");
             return result;
         }
 
@@ -43,7 +44,8 @@ public class MinTimeCriteria   {
             product_id = productDao.findByName(inputJSON.get("productName").toString()).get(0).getId();
 
            } catch (Exception e) {
-            result.put("results","no such product found");
+            result.put("type","error");
+            result.put("message","no such product found");
             return result;
         }
 
