@@ -4,7 +4,6 @@ import com.example.dbservice.dao.CustomerDao;
 import com.example.dbservice.dao.ProductDao;
 import com.example.dbservice.dao.PurchaseDao;
 import com.example.dbservice.entity.Customer;
-import com.example.dbservice.entity.Product;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +17,6 @@ public class LastNameCriteria   {
 
     @Autowired
     CustomerDao customerDao;
-
-    @Autowired
-    PurchaseDao purchaseDao;
-
-    @Autowired
-    ProductDao productDao;
 
 
     public JSONObject execute(JSONObject inputJSON) {

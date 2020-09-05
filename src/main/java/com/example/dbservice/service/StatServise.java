@@ -64,17 +64,17 @@ public class StatServise {
                 totalExpenses = totalExpenses.add(purchaseDetail.getTotal());
                 globalTotalExpenses = globalTotalExpenses.add(totalExpenses);
             }
-           
+
             customerData.put("purchases",purchases);
             customerData.put("totalExpenses",totalExpenses);
             customersData.add(customerData);
-          }
+        }
 
         long countOfCustomers = customerDao.count();
 
         result.put("customers",customersData);
         result.put("totalExpenses",globalTotalExpenses);
-        result.put("avgExpenses",123);
+        result.put("avgExpenses",globalTotalExpenses.divideToIntegralValue(new BigDecimal(countOfCustomers)));
 
 
         return result;

@@ -14,13 +14,13 @@ public class ServiceHub {
     StatServise statServise;
 
 
-   public JSONObject defineService(JSONObject inputJSON, String serviceName) {
+    public JSONObject defineService(JSONObject inputJSON, String serviceName) {
         JSONObject outputJSON = null;
 
         if(serviceName.equalsIgnoreCase("search"))
-             outputJSON = searchService.search(inputJSON);
+            outputJSON = searchService.search(inputJSON);
         else if(serviceName.equalsIgnoreCase("stat"))
-             outputJSON = statServise.getStat(inputJSON);
+            outputJSON = statServise.getStat(inputJSON);
 
         return outputJSON;
     }

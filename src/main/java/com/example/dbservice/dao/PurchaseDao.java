@@ -1,6 +1,7 @@
 package com.example.dbservice.dao;
 
-import com.example.dbservice.entity.*;
+import com.example.dbservice.entity.Purchase;
+import com.example.dbservice.entity.PurchaseDetails;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

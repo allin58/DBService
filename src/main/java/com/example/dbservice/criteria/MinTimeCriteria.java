@@ -17,8 +17,6 @@ public class MinTimeCriteria   {
     @Autowired
     CustomerDao customerDao;
 
-    @Autowired
-    PurchaseDao purchaseDao;
 
     @Autowired
     ProductDao productDao;
@@ -43,7 +41,7 @@ public class MinTimeCriteria   {
         try {
             product_id = productDao.findByName(inputJSON.get("productName").toString()).get(0).getId();
 
-           } catch (Exception e) {
+        } catch (Exception e) {
             result.put("type","error");
             result.put("message","no such product found");
             return result;

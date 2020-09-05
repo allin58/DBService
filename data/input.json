@@ -1,5 +1,8 @@
-    {
-      "startDate": "2020-08-10",
-      "endDate": "2020-09-10"
-    }
-
+{
+  "criterias": [
+    {"lastName": "Smith"},
+    {"productName": "apple", "minTimes": 2},
+    {"minExpenses": 30, "maxExpenses": 150},
+    {"badCustomers": 3}
+  ]
+}

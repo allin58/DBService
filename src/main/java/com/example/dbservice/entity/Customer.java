@@ -8,8 +8,6 @@ import javax.persistence.*;
 public class Customer {
 
 
-
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

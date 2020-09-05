@@ -1,0 +1,238 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.12
+-- Dumped by pg_dump version 10.12
+
+-- Started on 2020-09-05 15:04:53
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 1 (class 3079 OID 12924)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2813 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 196 (class 1259 OID 16657)
+-- Name: customer; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.customer (
+    id integer NOT NULL,
+    first_name character varying(50),
+    last_name character varying(50)
+);
+
+
+ALTER TABLE public.customer OWNER TO postgres;
+
+--
+-- TOC entry 198 (class 1259 OID 16672)
+-- Name: product; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.product (
+    id integer NOT NULL,
+    name character varying(50),
+    price numeric(8,2)
+);
+
+
+ALTER TABLE public.product OWNER TO postgres;
+
+--
+-- TOC entry 197 (class 1259 OID 16667)
+-- Name: purchase; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.purchase (
+    id integer NOT NULL,
+    customer_id integer,
+    product_id integer,
+    date timestamp without time zone
+);
+
+
+ALTER TABLE public.purchase OWNER TO postgres;
+
+--
+-- TOC entry 2803 (class 0 OID 16657)
+-- Dependencies: 196
+-- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.customer (id, first_name, last_name) FROM stdin;
+1	Alice	Smith
+2	Bob	Johnson
+3	Eve	Williams
+4	Carlos	Jones
+5	Mallory	Brown
+6	Peggy	Davis
+7	Trent	Miller
+8	Walter	King
+9	Merlin	Green
+10	Paul 	Baker
+11	Crage	Smith
+\.
+
+
+--
+-- TOC entry 2805 (class 0 OID 16672)
+-- Dependencies: 198
+-- Data for Name: product; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.product (id, name, price) FROM stdin;
+1	apple	1.02
+2	pen	3.00
+3	pineapple	5.30
+4	book	25.00
+5	fuel	50.00
+6	box	0.50
+7	milk	2.00
+8	bread	1.50
+9	sweet	3.25
+10	tea	20.03
+\.
+
+
+--
+-- TOC entry 2804 (class 0 OID 16667)
+-- Dependencies: 197
+-- Data for Name: purchase; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.purchase (id, customer_id, product_id, date) FROM stdin;
+1	1	1	2020-09-03 13:08:36.310463
+2	1	1	2020-09-03 13:23:24.774901
+3	1	1	2020-09-03 13:23:24.774901
+4	1	1	2020-09-03 13:23:24.774901
+5	1	1	2020-09-03 13:23:24.774901
+6	1	2	2020-09-03 13:23:24.774901
+7	1	2	2020-09-03 13:23:24.774901
+8	1	2	2020-09-03 13:23:24.774901
+9	1	2	2020-09-03 13:23:24.774901
+10	1	2	2020-09-03 13:23:24.774901
+11	2	1	2020-09-03 13:23:24.774901
+12	2	2	2020-09-03 13:23:24.774901
+13	2	3	2020-09-03 13:23:24.774901
+14	2	4	2020-09-03 13:23:24.774901
+15	2	5	2020-09-03 13:23:24.774901
+16	2	6	2020-09-03 13:23:24.774901
+17	2	7	2020-09-03 13:23:24.774901
+18	2	8	2020-09-03 13:23:24.774901
+19	2	1	2020-09-03 13:23:24.774901
+20	2	2	2020-09-03 13:23:24.774901
+21	3	3	2020-09-03 13:23:24.774901
+22	3	3	2020-09-03 13:23:24.774901
+23	3	3	2020-09-03 13:23:24.774901
+24	3	3	2020-09-03 13:23:24.774901
+25	3	5	2020-09-03 13:23:24.774901
+26	3	3	2020-09-03 13:23:24.774901
+27	3	4	2020-09-03 13:23:24.774901
+28	3	5	2020-09-03 13:23:24.774901
+29	3	1	2020-09-03 13:23:24.774901
+30	3	7	2020-09-03 13:23:24.774901
+31	4	8	2020-09-03 13:23:24.774901
+32	4	8	2020-09-03 13:23:24.774901
+33	4	8	2020-09-03 13:23:24.774901
+34	4	8	2020-09-03 13:23:24.774901
+35	4	5	2020-09-03 13:23:24.774901
+36	4	5	2020-09-03 13:23:24.774901
+37	4	10	2020-09-03 13:23:24.774901
+38	4	6	2020-09-03 13:23:24.774901
+39	4	10	2020-09-03 13:23:24.774901
+40	4	8	2020-09-03 13:23:24.774901
+41	5	1	2020-09-03 13:23:24.774901
+42	5	9	2020-09-03 13:23:24.774901
+43	5	2	2020-09-03 13:23:24.774901
+44	5	3	2020-09-03 13:23:24.774901
+45	5	5	2020-09-03 13:23:24.774901
+46	5	5	2020-09-03 13:23:24.774901
+47	5	5	2020-09-03 13:23:24.774901
+48	5	10	2020-09-03 13:23:24.774901
+49	5	5	2020-09-03 13:23:24.774901
+50	6	9	2020-09-03 13:23:24.774901
+51	6	9	2020-09-03 13:23:24.774901
+52	6	9	2020-09-03 13:23:24.774901
+53	6	2	2020-09-03 13:23:24.774901
+54	6	3	2020-09-03 13:23:24.774901
+55	7	3	2020-09-03 13:23:24.774901
+56	7	3	2020-09-03 13:23:24.774901
+57	7	3	2020-09-03 13:23:24.774901
+58	7	4	2020-09-03 13:23:24.774901
+59	7	8	2020-09-03 13:23:24.774901
+60	8	10	2020-09-03 13:23:24.774901
+61	8	10	2020-09-03 13:23:24.774901
+62	8	9	2020-09-03 13:23:24.774901
+63	9	7	2020-09-03 13:23:24.774901
+64	9	7	2020-09-03 13:23:24.774901
+65	10	10	2020-09-03 13:23:24.774901
+66	10	10	2020-09-03 13:23:24.774901
+67	10	10	2020-09-03 13:23:24.774901
+68	10	1	2020-09-03 13:23:24.774901
+69	10	7	2020-09-03 13:23:24.774901
+70	10	5	2020-09-03 13:23:24.774901
+\.
+
+
+--
+-- TOC entry 2677 (class 2606 OID 16661)
+-- Name: customer customer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.customer
+    ADD CONSTRAINT customer_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2681 (class 2606 OID 16676)
+-- Name: product product_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.product
+    ADD CONSTRAINT product_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2679 (class 2606 OID 16671)
+-- Name: purchase purchase_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.purchase
+    ADD CONSTRAINT purchase_pkey PRIMARY KEY (id);
+
+
+-- Completed on 2020-09-05 15:04:57
+
+--
+-- PostgreSQL database dump complete
+--
+

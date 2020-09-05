@@ -21,7 +21,7 @@ public interface CustomerDao  extends CrudRepository<Customer, Integer> {
             " product_id = :product GROUP BY customer_id HAVING count(product_id) >= :minTimes)",
             nativeQuery = true)
     List<Customer> getCustomersByMinTimeCriteria(@Param("product") Integer product,
-                                                @Param("minTimes") Integer minTimes);
+                                                 @Param("minTimes") Integer minTimes);
 
 
 
