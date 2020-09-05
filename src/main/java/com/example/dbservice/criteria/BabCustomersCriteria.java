@@ -32,15 +32,15 @@ public class BabCustomersCriteria {
             return result;
         }
 
-        List<Integer> idCustomers = customerDao.getCustomersByBadCustomersCriteria(badCustomers);
-        for (Integer idCustomer : idCustomers) {
-            Customer customer = customerDao.findById(idCustomer).get();
+
+        List<Customer> Customers = customerDao.getCustomersByBadCustomersCriteria(badCustomers);
+        for (Customer customer : Customers) {
             JSONObject tempJSON = new JSONObject();
             tempJSON.put("lastName",customer.getLastName());
             tempJSON.put("firstName",customer.getFirstName());
             listOfCustomers.add(tempJSON);
-
         }
+
 
         result.put("results",listOfCustomers);
 

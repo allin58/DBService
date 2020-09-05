@@ -3,7 +3,7 @@ package com.example.dbservice.service;
 
 import com.example.dbservice.criteria.BabCustomersCriteria;
 import com.example.dbservice.criteria.LastNameCriteria;
-import com.example.dbservice.criteria.MinExpensesCriteria;
+import com.example.dbservice.criteria.MinMaxExpensesCriteria;
 import com.example.dbservice.criteria.MinTimeCriteria;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -22,7 +22,7 @@ public class SearchService {
     BabCustomersCriteria babCustomersCriteria;
 
     @Autowired
-    MinExpensesCriteria minExpensesCriteria;
+    MinMaxExpensesCriteria minMaxExpensesCriteria;
 
     @Autowired
     MinTimeCriteria minTimeCriteria;
@@ -49,8 +49,8 @@ public class SearchService {
             }
 
             if(criteriaJSON.containsKey("minExpenses")) {
-                JSONObject execute = minExpensesCriteria.execute(criteriaJSON);
-              //  resultJSON.add(execute);
+                JSONObject execute = minMaxExpensesCriteria.execute(criteriaJSON);
+                resultJSON.add(execute);
             }
 
             if(criteriaJSON.containsKey("badCustomers")) {
