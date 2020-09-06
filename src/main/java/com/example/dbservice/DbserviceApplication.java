@@ -3,6 +3,7 @@ package com.example.dbservice;
 import com.example.dbservice.service.ServiceHub;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 
 @SpringBootApplication
@@ -28,16 +30,20 @@ public class DbserviceApplication {
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 
-			JSONParser parser = new JSONParser();
-			Object obj = parser.parse(new FileReader(args[1]));
-			JSONObject jsonObject = (JSONObject) obj;
+			try {
+				JSONParser parser = new JSONParser();
+				Object obj = parser.parse(new FileReader(args[1]));
+				JSONObject jsonObject = (JSONObject) obj;
 
-			JSONObject outputJSON = serviceHub.defineService(jsonObject, args[0]);
+				JSONObject outputJSON = serviceHub.defineService(jsonObject, args[0]);
 
-			FileWriter file = new FileWriter(args[2]);
-			file.write(outputJSON.toJSONString());
-			file.flush();
-			file.close();
+				FileWriter file = new FileWriter(args[2]);
+				file.write(outputJSON.toJSONString());
+				file.flush();
+				file.close();
+			} catch (Exception e) {
+				System.out.println("JSON  file error");
+			}
 		};
 	}
 
